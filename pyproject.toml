@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pyvisim-examples"
 version = "0.1.0"
-description = "Example notebooks and helper utilities for the pyvisim (Python Visual Similarity) library"
+description = "Example notebooks for the pyvisim (Python Visual Similarity) library"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [

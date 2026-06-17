@@ -1,6 +1,6 @@
-# Python Visual Similarity – Examples
+# Python Visual Similarity: Examples
 
-Example Jupyter notebooks and helper utilities for the
+Example Jupyter notebooks for the
 [pyvisim](https://github.com/MechaCritter/Python-Visual-Similarity) library
 (Python Visual Similarity).
 
@@ -10,44 +10,37 @@ retrieval evaluation.
 
 ## Contents
 
-- [`notebooks/`](notebooks/) – the example notebooks:
-  - `getting_started.ipynb` – a quick introduction to the library.
-  - `pipeline.ipynb` – chaining encoders into a single pipeline.
-  - `vlad_and_fisher_with_vgg16_deep_features.ipynb` – VLAD & Fisher Vector on
+- [`notebooks/`](notebooks/): the example notebooks:
+  - `getting_started.ipynb`: a quick introduction to the library.
+  - `pipeline.ipynb`: chaining encoders into a single pipeline.
+  - `vlad_and_fisher_with_vgg16_deep_features.ipynb`: VLAD & Fisher Vector on
     VGG16 deep features.
   - `clustering_images_using_vlad.ipynb` / `clustering_images_using_fv.ipynb` /
-    `clustering_images_using_pipeline.ipynb` – clustering images with the
+    `clustering_images_using_pipeline.ipynb`: clustering images with the
     different encoders.
-  - `m_ap_and_top_k_accuracy.ipynb` – evaluating retrieval with mAP and
+  - `m_ap_and_top_k_accuracy.ipynb`: evaluating retrieval with mAP and
     top-k accuracy.
-- [`pyvisim_examples/`](pyvisim_examples/) – plotting and clustering helper
+- [`pyvisim_examples/`](pyvisim_examples/): plotting and clustering helper
   functions used by the notebooks.
 
 ## Installation
 
-This project depends on [`pyvisim`](https://github.com/MechaCritter/Python-Visual-Similarity).
-Install it together with the example helpers in editable mode:
+Install the Pyvisim library and the dependencies for the examples:
 
 ```bash
-# from the repository root
-pip install -e .
+uv pip install .
 ```
 
-If `pyvisim` is not yet published to PyPI, install it from its repository first,
-for example:
+## Visit the [notebooks](notebooks/)
 
-```bash
-pip install "pyvisim @ git+https://github.com/MechaCritter/Python-Visual-Similarity.git"
-```
+There are notebooks for different use-cases of this project. If you would like to 
+suggest additional examples, feel free to contribute!
 
-To install PyTorch with CUDA support, see the comment in
-[`pyproject.toml`](pyproject.toml).
+## Get in Touch
+If you have any questions or just want to say hi, feel free to:
+- Open an issue on [GitHub](https://github.com/MechaCritter/similarity_metrics_of_images/issues).
+- Write me an email at [vunhathuy234@gmail.com](mailto:vunhathuy234@gmail.com).
+- Connect on [LinkedIn](https://www.linkedin.com/in/nhat-huy-vu-80495111b/) to follow my work and share your thoughts.
 
-## Running the notebooks
-
-```bash
-jupyter notebook notebooks/
-```
-
-The notebooks import the shared helpers via `from pyvisim_examples.utils import ...`,
-so make sure the package is installed (`pip install -e .`) before running them.
+## License
+This project is licensed under the terms of the MIT license.
