@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=64.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyvisim-examples"
+version = "0.1.0"
+description = "Example notebooks and helper utilities for the pyvisim (Python Visual Similarity) library"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Nhat Huy Vu", email = "vunhathuy234@gmail.com"}
+]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    # The library these examples demonstrate.
+    "pyvisim",
+    # Direct imports used by the notebooks and the helper utilities below.
+    "matplotlib",
+    "seaborn",
+    "scikit-learn",
+    "numpy",
+    "opencv-python",
+    "torch",
+    "torchvision",
+    "jupyter",
+]
+
+# To install PyTorch with CUDA support instead of the CPU-only default:
+#   uv pip install torch torchvision --index-url https://download.pytorch.org/whl/cu124
+# Replace cu124 with the CUDA version matching your system (e.g. cu121, cu118).
+
+[project.urls]
+Homepage = "https://github.com/MechaCritter/Python-Visual-Similarity-Examples"
+Library = "https://github.com/MechaCritter/Python-Visual-Similarity"
+
+[tool.setuptools.packages.find]
+include = ["pyvisim_examples", "pyvisim_examples.*"]
