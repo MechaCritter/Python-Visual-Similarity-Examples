@@ -23,7 +23,6 @@ classifiers = [
 ]
 dependencies = [
     # The library these examples demonstrate.
-    "pyvisim",
     # Direct imports used by the notebooks and the helper utilities below.
     "matplotlib",
     "seaborn",
@@ -33,6 +32,8 @@ dependencies = [
     "torch",
     "torchvision",
     "jupyter",
+    "tensorboard",
+    "pyvisim[nn]>=0.9.1",
 ]
 
 # To install PyTorch with CUDA support instead of the CPU-only default:
