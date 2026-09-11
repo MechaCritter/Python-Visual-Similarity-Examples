@@ -5,8 +5,7 @@ Example Jupyter notebooks for the
 (Python Visual Similarity).
 
 The notebooks walk through the main features of `pyvisim`: feature extraction,
-VLAD / Fisher Vector embedding, building pipelines, image clustering and
-image similarity retrieval.
+embedding methods, image clustering and image similarity retrieval.
 
 ## Contents
 
