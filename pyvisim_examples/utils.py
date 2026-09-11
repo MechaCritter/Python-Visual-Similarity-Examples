@@ -1,16 +1,14 @@
-"""Plotting and clustering helpers used by the pyvisim example notebooks.
+"""Plotting and clustering helpers used by the pyvisim example notebooks."""
 
-These utilities used to live in :mod:`pyvisim._utils` but were only ever used by
-the example notebooks, so they were moved here when the notebooks were split out
-into their own repository.
-"""
-
+from collections.abc import Sequence
 from typing import Any, Literal
 
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 import torch
+from PIL import Image
+from pyvisim.image_store import Candidate
 from pyvisim.typing import (
     FloatNumpyArray,
     IntNumpyArray,
@@ -42,6 +40,48 @@ def plot_image(image: UInt8NumpyArray | torch.Tensor, title: str = "Image") -> N
     plt.axis("off")
     plt.title(title)
     plt.show()
+
+
+def plot_candidates(
+    query_image: UInt8NumpyArray,
+    query_label: int,
+    candidates: Sequence[Candidate],
+    labels_by_path: dict[str, int],
+) -> None:
+    """
+    Plot a query image next to the gallery images retrieved for it.
+
+    :param query_image: Query image as a NumPy array (H, W, C)
+    :param query_label: Class label of the query image
+    :param candidates: Ranked candidates retrieved for the query, e.g. by
+        :meth:`~pyvisim.image_store.InMemoryImageEmbeddingStore.retrieve_top_k_similar`
+    :param labels_by_path: Class label of every gallery image, keyed by its path
+    :raises KeyError: If a candidate path is missing from ``labels_by_path``
+    """
+    num_plots = len(candidates) + 1
+    _, axes = plt.subplots(1, num_plots, figsize=(4 * num_plots, 4), squeeze=False)
+    axes[0, 0].imshow(query_image)
+    axes[0, 0].set_title(f"Query image. Label: {query_label}")
+    for axis, candidate in zip(axes[0, 1:], candidates, strict=True):
+        axis.imshow(_read_rgb_image(candidate.path))
+        axis.set_title(
+            f"Retrieved image. Label: {labels_by_path[candidate.path]}\n"
+            f"Score: {candidate.score:.4f}"
+        )
+    for axis in axes[0]:
+        axis.axis("off")
+    plt.show()
+
+
+def _read_rgb_image(path: str) -> UInt8NumpyArray:
+    """
+    Read an image file into an RGB array.
+
+    :param path: Path to the image file
+    :return: The image as a NumPy array (H, W, 3)
+    """
+    with Image.open(path) as image:
+        return np.asarray(image.convert("RGB"))
 
 
 def cluster_and_return_labels(

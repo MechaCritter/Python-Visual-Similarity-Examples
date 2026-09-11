@@ -5,23 +5,20 @@ Example Jupyter notebooks for the
 (Python Visual Similarity).
 
 The notebooks walk through the main features of `pyvisim`: feature extraction,
-VLAD / Fisher Vector encoding, building pipelines, image clustering and
-retrieval evaluation.
+VLAD / Fisher Vector embedding, building pipelines, image clustering and
+image similarity retrieval.
 
 ## Contents
 
 - [`notebooks/`](notebooks/): the example notebooks:
   - `getting_started.ipynb`: a quick introduction to the library.
-  - `pipeline.ipynb`: chaining encoders into a single pipeline.
-  - `vlad_and_fisher_with_vgg16_deep_features.ipynb`: VLAD & Fisher Vector on
-    VGG16 deep features.
-  - `clustering_images_using_vlad.ipynb` / `clustering_images_using_fv.ipynb` /
-    `clustering_images_using_pipeline.ipynb`: clustering images with the
-    different encoders.
-  - `m_ap_and_top_k_accuracy.ipynb`: evaluating retrieval with mAP and
-    top-k accuracy.
-- [`pyvisim_examples/`](pyvisim_examples/): plotting and clustering helper
-  functions used by the notebooks.
+  - `image_search.ipynb`: how to search for images similar to a query image. This 
+  is probably **the most interesting notebook of all**.
+  - `m_ap_and_top_k_accuracy.ipynb`: evaluating retrieval with mAP and top-k accuracy.
+  - `vlad_and_fisher_with_resnet18_deep_features.ipynb`: VLAD & Fisher Vector on
+    ResNet18 deep features.
+  - And so on ... Feel free to discover all :D
+    
 
 ## Installation
 
@@ -30,11 +27,6 @@ Install the Pyvisim library and the dependencies for the examples:
 ```bash
 uv pip install .
 ```
-
-## Visit the [notebooks](notebooks/)
-
-There are notebooks for different use-cases of this project. If you would like to 
-suggest additional examples, feel free to contribute!
 
 ## Get in Touch
 If you have any questions or just want to say hi, feel free to:
